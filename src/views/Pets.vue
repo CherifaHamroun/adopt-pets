@@ -1,15 +1,19 @@
 <template>
     <div>
-        {{ $route.params.species }}
-        {{ $route.params.id }}
+        <h1>{{ animal.name }} ({{ $route.params.species }})</h1>
+        <p>{{ animal.age }} yo</p>
+        <p>{{ animal.breed }}</p>
     </div>
 </template>
 <script>
 // import cats from '@/data/cats'
 import { mapState } from 'vuex'
+
 export default {
   data () {
-    return {}
+    return {
+      animal: {}
+    }
   },
   computed: {
     /* or doing this >
@@ -20,6 +24,10 @@ export default {
       'cats',
       'dogs'
     ])
+  },
+  mounted () {
+    const animal = this[this.$route.params.species + 's'][this.$route.params.id]
+    this.animal = animal
   }
 }
 </script>
