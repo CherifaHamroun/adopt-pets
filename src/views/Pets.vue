@@ -26,7 +26,7 @@ export default {
     ])
   },
   mounted () {
-    const animal = this[this.$route.params.species + 's'][this.$route.params.id]
+    const animal = this[this.$route.params.species][this.$route.params.id]
     this.animal = animal
   }
 }
